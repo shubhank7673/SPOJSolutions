@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Shubhank Khare
+
+#define MOD 1000000007
+ 
+#define VALUEIN
+#ifdef VALUEIN
+#define valuein(...) __f(#__VA_ARGS__, __VA_ARGS__)
+template <typename Arg1>
+void __f(const char* name, Arg1&& arg1){
+	cerr << name << " : " << arg1 << std::endl;
+}
+template <typename Arg1, typename... Args>
+void __f(const char* names, Arg1&& arg1, Args&&... args){
+	const char* comma = strchr(names + 1, ',');cerr.write(names, comma - names) << " : " << arg1<<" | ";__f(comma+1, args...);
+}
+#else
+#define valuein(...)
+#endif
+ 
+static auto _ = []()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    return nullptr;
+}();
+
+int main() 
+{
+	long int t;
+	scanf("%ld",&t);
+	while(t--)
+	{
+		long long int m,n,i,j,check;
+		scanf("%lld %lld",&m,&n);
+		for(i=m;i<=n;i++)
+		{ check=0;
+		  if(i==1)
+		  continue;
+			for(j=2;j<=sqrt(i);j++)
+			{
+				if(i%j==0)
+				{
+					check=1;
+					break;
+				}
+			}
+			if(check==0)
+			printf("%lld\n",i);
+		}
+		printf("\n");
+	}
+	return 0;
+}
